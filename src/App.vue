@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
     <router-view/>
   </div>
 </template>
@@ -19,5 +18,23 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.signout-btn {
+  position: absolute;
+  text-align: right;
+  top: 60px;
+  right: 40px;
+}
+
+.form {
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.event-card {
+  border: 2px solid #2c3e50;
+  margin-top: 10px;
+  border-radius: 4px;
 }
 </style>
