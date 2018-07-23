@@ -3,10 +3,10 @@
 
 import Vue from 'vue'
 import router from './router'
-
 import { firebaseApp } from './firebaseApp'
-
 import App from './App'
+
+import store from './store'
 
 Vue.config.productionTip = false
 
@@ -14,6 +14,7 @@ Vue.config.productionTip = false
 firebaseApp.auth().onAuthStateChanged(user => {
   if (user) {
     console.log('user authenticated => pushing to the app')
+    store.dispatch('signIn', user)
     router.push('/dashboard')
   } else {
     console.log('no user => redirecting to sign in')
@@ -25,6 +26,7 @@ firebaseApp.auth().onAuthStateChanged(user => {
 new Vue({
   el: '#app',
   router,
+  store,
   components: { App },
   template: '<App/>'
 })
