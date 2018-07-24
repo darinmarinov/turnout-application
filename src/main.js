@@ -18,7 +18,7 @@ firebaseApp.auth().onAuthStateChanged(user => {
     router.push('/dashboard')
   } else {
     console.log('no user => redirecting to sign in')
-    router.replace('/signin')
+    router.replace('/signup')
   }
 })
 

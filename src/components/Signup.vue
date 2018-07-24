@@ -1,5 +1,5 @@
 <template>
-<div class="col-sm-6 col-sm-auto justify-content-center">
+  <div class="col-sm-6 col-sm-auto justify-content-center">
  <form>
   <div class="form-group">
     <label for="exampleInputEmail1">Email address</label>
@@ -10,13 +10,13 @@
     <label for="exampleInputPassword1">Password</label>
     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password" v-model="password">
   </div>
-  <button type="submit" class="btn btn-primary" @click.prevent='signIn'>Sign In</button>
+  <button type="submit" class="btn btn-primary" @click.prevent='signUp'>Sign Up</button>
  </form>
  <br>
  <br>
  <p>{{error.message}}</p>
  <br>
- <router-link to='/signup'>Not a user? Sign Up</router-link>
+  <router-link to='/signin'>Already a user? Sign In</router-link>
 </div>
 </template>
 
@@ -27,14 +27,14 @@ export default {
     return {
       email: "",
       password: "",
-      error:{
-          message:''
+      error: {
+        message: ""
       }
     };
   },
   methods:{
-      signIn(){
-          firebaseApp.auth().signInWithEmailAndPassword(this.email, this.password)
+      signUp(){
+          firebaseApp.auth().createUserWithEmailAndPassword(this.email,this.password)
           .catch(error=>{
               this.error = error
           })
