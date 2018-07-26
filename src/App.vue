@@ -44,6 +44,7 @@ a {
     color: white;
 }
     a::before {
+        z-index: -1;
         content: '';
         position: absolute;
         top: 0;
@@ -67,6 +68,7 @@ a {
     }
     
     a::after {
+        z-index: -1;
         position: relative;
         display: inline-block;
         content: attr(data-title);
