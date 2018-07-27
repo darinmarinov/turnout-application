@@ -14,7 +14,7 @@
           v-for="(event, index) in this.$store.state.events"
           :event="event"
           :key="index"
-           @click.prevent="deleteItem(index)"
+           @click.prevent="deleteItem"
           />
       </div>
   </div>
@@ -29,9 +29,10 @@
       signOut(){
         this.$store.dispatch('signOut')
         firebaseApp.auth().signOut()
+        
       },
-       deleteItem(key) {
-        eventsRef.items.child(key).remove();
+       deleteItem() {
+        console.log($store.state.events)
       }
     },
     components: {
